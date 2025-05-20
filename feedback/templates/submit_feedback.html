@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block title %}Feedback{% endblock %}
+{% block css %}
+<style>
+   .form-control:valid {
+    border-color: #198754;
+  }
+  .form-control:invalid {
+    border-color: #dc3545;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+
+  <div class="card shadow-sm p-4 rounded-4" style="max-width: 700px; width: 100%; background-color: #ffffff;">
+    <h3 class="fw-bold mb-1">Submit Feedback</h3>
+    <p class="text-muted mb-4">Help us improve by sharing your thoughts on college events and clubs.</p>
+
+   <form method="POST" class="needs-validation" novalidate>
+  {% csrf_token %}
+
+
+  <div class="mb-3">
+    <label class="form-label fw-semibold">Event Name</label>
+    <select class="form-select" name="event" required>
+      <option value="" disabled selected>Select an event</option>
+      {% for event in events %}
+        <option value="{{ event.id }}">{{ event.name }}</option>
+      {% endfor %}
+    </select>
+    <div class="invalid-feedback">Please select an event.</div>
+  </div>
+
+ 
+  <div class="row mb-3">
+    <div class="col">
+      <label class="form-label fw-semibold">Your Name</label>
+      <input type="text" name="student_name" class="form-control" placeholder="e.g., Prabhat Maurya" required>
+      <div class="invalid-feedback">Name is required.</div>
+    </div>
+    <div class="col">
+      <label class="form-label fw-semibold">Your Email</label>
+      <input type="email" name="email" class="form-control" placeholder="e.g., maurya@example.com" required>
+      <div class="invalid-feedback">Please enter a valid email address.</div>
+    </div>
+  </div>
+
+
+  <div class="mb-3">
+    <label class="form-label fw-semibold">Feedback</label>
+    <textarea name="comments" class="form-control" rows="4" placeholder="Share your detailed feedback here..." required></textarea>
+    <div class="invalid-feedback">Please enter your feedback.</div>
+  </div>
+
+  <button type="submit" class="btn btn-primary d-flex align-items-center">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill me-2" viewBox="0 0 16 16">
+      <path d="M15.964.686a.5.5 0 0 1 .007.708L6.428 11H3v2l1.5 1.5L6 15h2l10-10.964a.5.5 0 0 1 .707-.007z"/>
+    </svg>
+    Submit Feedback
+  </button>
+</form>
+  </div>
+</div>
+{% endblock %}
+
+{% block scrips%}
+<script>
+   (() => {
+    'use strict';
+    const forms = document.querySelectorAll('.needs-validation');
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  })();
+</script>
+  
+{% endblock%}
