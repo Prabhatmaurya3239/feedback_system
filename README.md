@@ -41,7 +41,7 @@ feedback_system/
 ├── manage.py
 ├── requirements.txt
 └── README.md
----
+--- '''
 ---
 
 ## ⚙️ Local Setup Instructions
@@ -51,17 +51,24 @@ feedback_system/
 ```bash
 git clone https://github.com/prabhatmaurya3239/feedback_system.git
 cd feedback_system
-
 '''
+
 ### 2. Create Virtual Environment and Install Dependencies
+```bash
 python -m venv venv
 source venv/bin/activate           # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
+pip install -r requirements.txt '''
+
 
 ###⚙️ 3. Run Migrations and Create Superuser
+'''bash
 python manage.py makemigrations
 python manage.py migrate
-python manage.py createsuperuser
+python manage.py createsuperuser '''
+
 
 ###  ▶️ 4. Run the Server
+'''bash
+python manage.py runserver
+
 
