@@ -19,6 +19,7 @@ A Django-based web application that allows students to submit feedback for colle
 
 ## 📁 Project Structure
 ---
+```bash
 feedback_system/
 ├── feedback_system/         # Main project settings
 │   ├── __init__.py
@@ -50,6 +51,8 @@ feedback_system/
 ```bash
 git clone https://github.com/prabhatmaurya3239/feedback_system.git
 cd feedback_system
+
+'''
 ### 2. Create Virtual Environment and Install Dependencies
 python -m venv venv
 source venv/bin/activate           # On Windows: venv\Scripts\activate
