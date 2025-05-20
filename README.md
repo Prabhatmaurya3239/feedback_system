@@ -20,17 +20,45 @@ A Django-based web application that allows students to submit feedback for colle
 ## 📁 Project Structure
 
 feedback_system/
-├── feedback/ # Core app (models, views, forms, etc.)
-│ ├── templates/ # HTML templates
-│ ├── static/ # CSS, JS, images (Bootstrap file)
-│ ├── models.py # Feedback model
-│ ├── views.py # Main logic (feedback, AI, summary)
-│ ├── urls.py # Feedback URLs
-│ └── utils.py # Sentiment analysis & Gemini summarizer
-├── feedback_system/ # Django settings
-│ ├── settings.py
-│ ├── urls.py
+├── feedback_system/         # Main project settings
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── feedback/                # Feedback app
+│   ├── migrations/
+│   ├── templates/
+│   │   └── feedback/
+│   │       ├── base.html
+│   │       └── admin_dashboard.html  #some file
+│   ├── static/
+│   ├── admin.py
+│   ├── models.py
+│   ├── views.py
+│   ├── urls.py
+│   └── utils.py
 ├── manage.py
 ├── requirements.txt
-├── render.yaml # (Render deploy config)
 └── README.md
+
+---
+
+## ⚙️ Local Setup Instructions
+
+### 🔁 1. Clone the Repository
+
+```bash
+git clone https://github.com/prabhatmaurya3239/feedback_system.git
+cd feedback_system
+###2. Create Virtual Environment and Install Dependencies
+python -m venv venv
+source venv/bin/activate           # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+
+###⚙️ 3. Run Migrations and Create Superuser
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+
+###▶️ 4. Run the Server
+
