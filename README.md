@@ -16,6 +16,54 @@ A Django-based web application that allows students to submit feedback for colle
 - 🎨 Bootstrap responsive design
 
 ---
+## ⚙️ Tech Stack Used
+
+### 🧠 Backend
+- **Python 3.11+**
+- **Django**: High-level Python web framework
+- **Django Admin**: Built-in admin dashboard for managing feedback
+- **Gunicorn**: WSGI HTTP server for deployment
+
+### 💬 Sentiment Analysis
+- **TextBlob**: For Natural Language Processing and classifying feedback into Positive, Neutral, or Negative
+
+### 🤖 AI Integration (Optional)
+- **Gemini API (Google Generative AI)**: Summarizes feedback into concise AI-generated summaries
+
+### 🌐 Frontend
+- **HTML5**, **CSS3**
+- **Bootstrap 5**: Responsive design and UI components
+- **Chart.js**: Data visualization for sentiment graphs
+
+### 🛠️ Tools & Deployment
+- **Render**: Cloud platform to deploy Django apps easily
+- **Gunicorn**: WSGI server for Render deployment
+- **Procfile**: Render-specific entry point
+- **Environment Variables**: Secure management of secret keys and configs
+- **CSRF Trusted Origins**: Secured setup for production
+
+---
+
+## 🔐 Security & Configurations
+
+| Feature | Tool/Library | Notes |
+|--------|--------------|-------|
+| CSRF Protection | Django Middleware | `CSRF_TRUSTED_ORIGINS` configured for Render |
+| Environment Secrets | `os.environ` | Secure storage of `SECRET_KEY`, `DEBUG`, API keys |
+| Admin Panel | Django Admin | Password-protected superuser access |
+
+---
+
+## 💻 Developer Tools
+
+| Tool | Purpose |
+|------|---------|
+| `manage.py` | CLI for migrations, superuser creation, etc. |
+| `requirements.txt` | Python dependency management |
+| `Procfile` | Render-compatible start command |
+| `venv` | Python virtual environment |
+| `.env` (optional) | Local development environment secrets |
+
 
 ## 📁 Project Structure
 ---
